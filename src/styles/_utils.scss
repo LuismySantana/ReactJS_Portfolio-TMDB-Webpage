@@ -1,0 +1,24 @@
+
+
+// ---- Varaibles ----
+
+$colors: (
+    "white-bg": #f9f9f9
+);
+
+
+
+// ---- Mixins ----
+
+@mixin flexContainer($dir, $wrap, $align, $justify, $gap: 0) {
+    display: flex;
+    flex-flow: $dir $wrap;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+
+    & > *{
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+}

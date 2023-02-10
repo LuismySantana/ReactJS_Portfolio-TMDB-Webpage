@@ -1,0 +1,28 @@
+@use "utils";
+
+
+//  ---- Reseting ----
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+
+
+
+//  ---- Main Layout ----
+
+.main_layout {
+    @include utils.flexContainer(column, nowrap, flex-start, flex-start);
+    width: 100%;
+    min-height: 100vh;
+    background-color: map-get(utils.$colors, "white-bg");
+}
