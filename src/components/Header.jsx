@@ -1,6 +1,6 @@
 import "../styles/Header.scss"
 import { Link, useLocation } from "react-router-dom"
-
+import ButtonLog from "./ButtonLog";
 
 
 
@@ -43,7 +43,10 @@ const Header = () => {
                 </ul>
             </nav>
 
-            <button className="button_log">Log in</button>
+            <ButtonLog 
+                label="Log in"
+                hoverClass="login"
+            />
         </header>
     )
 }

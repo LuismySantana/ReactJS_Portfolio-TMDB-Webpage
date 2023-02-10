@@ -1,0 +1,53 @@
+@use "utils";
+
+.button_log {
+    background-color: transparent;
+    font-size: 1rem;
+    padding: .5em .8em;
+    font-family: inherit;
+    font-weight: 300;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    border: none;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: .4em;
+        border: 1px solid #fff;
+    }
+
+    & > .hover_style {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: .5em .8em;
+        color: #000;
+
+        border-radius: .4em;
+        transition: clip-path ease-out .3s;
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+
+        &.login {
+            background-color: map-get(utils.$colors , "green-primary");
+        }
+        
+        &.logout {
+            background-color: map-get(utils.$colors , "red-primary");
+            color: #fff;
+        }
+
+    }
+
+
+    &:hover > .hover_style {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
