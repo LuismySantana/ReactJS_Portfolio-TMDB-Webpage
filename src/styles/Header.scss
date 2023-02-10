@@ -1,23 +1,50 @@
 @use "utils";
 
 
+// ---- Header ----
 header {
     @include utils.flexContainer(row, nowrap, center, space-between);
+    background-color: map-get(utils.$colors, "blue-primary");
     width: 100%;
     height: 75px;
-    background-color: map-get(utils.$colors, "blue-primary");
     padding: 0 30px;
+    overflow: hidden;
 
 
+    // ---- Header logo and toggle button for responsive menu ----
+    .header_logo_toggler_container {
+        @include utils.flexContainer(row, nowrap, center, center);
+        position: relative;
 
-    .header_logo {
-        height:35%;
+        .header_menu_toggler {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            right: 20px;
+            display: none;
 
-        img {
-            height: 100%;
+            svg {
+                width: 30px;
+                height: 30px;
+                stroke: map-get(utils.$colors, "blue-secondary");
+            }
         }
+
+        .header_logo {
+            display: block;
+            height: 25px;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+
     }
 
+
+    // ---- Navigation menu ----
     nav ul {
         @include utils.flexContainer(row, nowrap, center, center, 20px);
         font-size: 1.05rem;
@@ -35,7 +62,7 @@ header {
                 right: 0;
                 margin: 0 auto;
                 width: 0%;
-                height: .2rem;
+                height: .2em;
                 background-color: map-get(utils.$colors, "blue-secondary");
                 transition: width .3s ease-out;
 
@@ -52,6 +79,31 @@ header {
             &.active::after{
                 width: 100%;
             }
+        }
+    }
+
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 25px 0 35px;
+        
+        .header_logo_toggler_container {
+            width: 100%;
+            
+            .header_menu_toggler {
+                display: block;
+            }
+   
+        }
+
+        &.opened {
+            height: fit-content;
+        }
+
+
+        nav ul {
+            flex-direction: column;
+            margin: 30px 0 35px;
         }
     }
     
