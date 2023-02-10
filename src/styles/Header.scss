@@ -1,0 +1,59 @@
+@use "utils";
+
+
+header {
+    @include utils.flexContainer(row, nowrap, center, space-between);
+    width: 100%;
+    height: 75px;
+    background-color: map-get(utils.$colors, "blue-primary");
+    padding: 0 30px;
+
+
+
+    .header_logo {
+        height:35%;
+        width: 30px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    nav ul {
+        @include utils.flexContainer(row, nowrap, center, center, 20px);
+        font-size: 1.05rem;
+
+        li a {
+            display: block;
+            padding: .5em;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 0%;
+                height: .2rem;
+                background-color: map-get(utils.$colors, "blue-secondary");
+                transition: width .3s ease-out;
+
+            }
+
+            &.active {
+                pointer-events: none;
+            }
+
+            &:hover::after{
+                width: 100%;
+            }
+
+            &.active::after{
+                width: 100%;
+            }
+        }
+    }
+    
+}

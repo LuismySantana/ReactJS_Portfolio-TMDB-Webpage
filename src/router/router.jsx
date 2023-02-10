@@ -10,7 +10,11 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true, 
-                element: <p>Populars films Page</p>
+                element: <p>Index Page</p>
+            },
+            {
+                path: "/popular",
+                element: <p>Popular Page</p>,
             },
             {
                 path: "/information/:id",
