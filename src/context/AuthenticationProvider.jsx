@@ -17,6 +17,7 @@ const AuthenticationProvider = ({children}) => {
     // State to check the actual logging session
     const [ authentication, setAuthentication ] = useState({});
 
+    
     useEffect(() => {
         checkUserLoggedState();
     }, [])

@@ -61,17 +61,18 @@ const Header = () => {
                             Most popular
                         </Link>
                     </li>
-                    <li>
-                        {authentication?.logged && (
+                    
+                    {authentication?.logged && (
+                        <li>
                             <Link
                                 to="/profile"
                                 className={isCurrentPage("/profile") ? "active" : ""}
                             >
                                 My profile
                             </Link>
-                        )}
+                        </li>
+                    )}
                         
-                    </li>
                 </ul>
             </nav>
 
