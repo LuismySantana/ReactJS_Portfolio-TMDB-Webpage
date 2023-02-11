@@ -1,0 +1,88 @@
+@use "utils";
+
+
+// ---- Card for each movie preview ----
+
+.movie_card {
+    width: 250px;
+    background-color: map-get(utils.$colors, "white-bg");
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,.4);
+    transition: transform ease-out .2s;
+    border: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1.1rem;
+    text-align: center;
+
+
+    .card_img {
+        width: 100%;
+    }
+
+    .card_information {
+        @include utils.flexContainer(column, nowrap, center, flex-start, .5em);
+        padding: 10px;
+        color: #000;
+        font-weight: 500;
+
+        .card_title {
+            color: map-get(utils.$colors, "blue-primary");
+            font-weight: bold;
+            transition: color ease .2s;
+        }
+
+        .card_release_date {
+            font-size: .875em;
+            margin: .3em 0;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .card_popularity {
+            width: 75%;
+            margin: .5em auto;
+            padding: 1.05em 0 .85em;
+            position: relative;
+
+
+            .heading {
+                position: absolute;
+                top: -.5em;
+                left: 0;
+                right: 0;
+                font-size: .95em;
+                color: map-get(utils.$colors, "red-primary");
+            }
+
+            .content {
+                font-weight: bold;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border-radius: .4em;
+                border: 3px solid map-get(utils.$colors, "red-primary");
+                clip-path: polygon(0 0, 20% 0, 20% 25%, 80% 25%, 80% 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+    }
+    
+    
+
+    &:hover {
+        transform: scale(1.04);
+
+        .card_title {
+            color: map-get(utils.$colors, "blue-secondary");
+        }
+    }
+
+    &:active {
+        transform: scale(1.02);
+    }
+}

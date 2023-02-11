@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import { loadPopularFilmsList } from "../utils";
 import "../styles/PopularPage.scss"
+import MovieCard from "../components/MovieCard";
 
 
 const PopularPage = () => {
@@ -32,13 +33,19 @@ const PopularPage = () => {
                     // Else we show the movies list
                     <>
                         <div className="films_card_list">
-                            {filmsList.results.map(film => (
-                                <p 
-                                    key={film.id}
-                                >
-                                    {film.title}
-                                </p>
-                            ))}
+                            {filmsList.results.map(film => {
+                                const { id, title, release_date, poster_path, popularity } = film;
+                                
+                                return <MovieCard
+                                    key={id}
+                                    id={id}
+                                    title={title}
+                                    release={release_date}
+                                    popularity={popularity}
+                                    imagePath={poster_path}
+
+                                />
+                            })}
                         </div>
                         <div>Pagination</div>
                     </>

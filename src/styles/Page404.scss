@@ -26,7 +26,7 @@
     a {
         color: map-get(utils.$colors , "blue-secondary" );
         font-weight: 600;
-        transition: color ease .1s;
+        transition: color ease .15s;
 
         &:hover {
             color: map-get(utils.$colors , "green-primary" );

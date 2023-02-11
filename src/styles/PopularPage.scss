@@ -1,9 +1,9 @@
 @use "utils";
 
 .popular_films_page {
-    @include utils.flexContainer(column, nowrap, center, flex-start, 1rem);
+    @include utils.flexContainer(column, nowrap, center, flex-start);
     width: 100%;
-    padding: 60px;
+    padding: 60px 90px;
     
     .popular_films_title {
         text-align: center;
@@ -35,10 +35,8 @@
     
 
     .films_card_list {
-        @include utils.flexContainer(row, wrap, flex-start, center, 25px);
+        @include utils.flexContainer(row, wrap, flex-start, center, 40px);
         width: 100%;
-        margin: 25px 0;
-
-        background-color: rgba(255, 0, 0, 0.123);
+        margin: 60px 0;
     }
 }
