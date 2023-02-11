@@ -1,6 +1,5 @@
-import { createBrowserRouter } from "react-router-dom"
-
-import Layout from '../Layout'
+import { createBrowserRouter } from "react-router-dom";
+import Layout from '../Layout';
 
 // Webpage routing --> The most relevant ones are /popular and /information/:id
 const router = createBrowserRouter([

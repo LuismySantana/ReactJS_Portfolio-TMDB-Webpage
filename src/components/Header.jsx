@@ -1,19 +1,21 @@
-import "../styles/Header.scss"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom";
 import ButtonLog from "./ButtonLog";
 import { useState } from "react";
-
+import "../styles/Header.scss";
 
 
 const Header = () => {
+    // State to control menu on responsive
     const [isMenuOpen, setIsMenuOpen] = useState(false);    
     
     const location = useLocation();
 
+    // Function to control current page for the nav buttons
     function isCurrentPage(pagePath) {
         return location.pathname === pagePath;
     }
 
+    // Header menu button handler (for responsive design)
     function handleToggle() {
         setIsMenuOpen(!isMenuOpen);
     }
@@ -75,4 +77,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
