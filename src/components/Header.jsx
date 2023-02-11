@@ -24,7 +24,7 @@ const Header = () => {
     return (
         <header className={isMenuOpen ? "opened" : ""}>
             <div className="header_logo_toggler_container">
-                <Link to="/" className="header_logo"><img src="./TMDB_logo_alt_short.svg" alt="The Movie DB"/></Link>
+                <Link to="/" className="header_logo"><img src="/TMDB_logo_alt_short.svg" alt="The Movie DB"/></Link>
                 
                 <button
                     className="header_menu_toggler"
