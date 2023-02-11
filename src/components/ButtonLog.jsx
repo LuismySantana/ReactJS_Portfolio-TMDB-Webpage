@@ -1,11 +1,12 @@
 import "../styles/ButtonLog.scss";
 
 
-const ButtonLog = ({label, hoverClass}) => {
+const ButtonLog = ({label, hoverClass, clickAction}) => {
   return (
     <button 
         type="button"
         className="button_log"
+        onClick={clickAction}
     >
         {label}
 

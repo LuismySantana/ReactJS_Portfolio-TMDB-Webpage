@@ -2,11 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 import ButtonLog from "./ButtonLog";
 import { useState } from "react";
 import "../styles/Header.scss";
+import useAuthentication from "../hooks/useAuthentication";
 
 
 const Header = () => {
     // State to control menu on responsive
-    const [isMenuOpen, setIsMenuOpen] = useState(false);    
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Context for login simulation
+    const { authentication, userLogin, userLogout } = useAuthentication();
     
     const location = useLocation();
 
@@ -68,10 +72,20 @@ const Header = () => {
                 </ul>
             </nav>
 
-            <ButtonLog 
-                label="Log in"
-                hoverClass="login"
-            />
+            {!authentication?.logged ? (
+                <ButtonLog 
+                    label="Log in"
+                    hoverClass="login"
+                    clickAction={userLogin}
+                />
+            ):(
+                <ButtonLog 
+                    label="Log out"
+                    hoverClass="logout"
+                    clickAction={userLogout}
+                />
+            )}
+            
             
         </header>
     )
