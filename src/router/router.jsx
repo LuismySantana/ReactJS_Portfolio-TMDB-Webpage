@@ -20,12 +20,12 @@ const router = createBrowserRouter([
             {
                 // Page to view extended information of a selected film (accessible for logged and not logged users)
                 path: "/information/:id",
-                element: <p>Films information Page</p>,
+                element: <p>Film information Page</p>,
             },
             {
                 // Logged user profile page (accessible only for logged users)
-                path: "/information/:id",
-                element: <p>Films information Page</p>,
+                path: "/profile",
+                element: <p>User profile</p>,
             },
             {
                 // Escape url
