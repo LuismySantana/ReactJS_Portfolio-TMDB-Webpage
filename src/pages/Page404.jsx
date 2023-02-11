@@ -2,6 +2,7 @@ import "../styles/Page404.scss";
 import { Link } from "react-router-dom";
 
 
+// This is only a fake error page to use a an Escape page for wrong url's and also to set Home and Profile pages as "In development"
 const Page404 = ({title, subtitle, message}) => {
 
 
@@ -22,4 +23,4 @@ const Page404 = ({title, subtitle, message}) => {
   )
 }
 
-export default Page404
+export default Page404;
