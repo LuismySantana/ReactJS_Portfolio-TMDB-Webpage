@@ -5,6 +5,11 @@ const AuthenticationContext = createContext();
 
 // As this is only a test project, we will be creating a context to simulate an user login system (creating a false session via localStorage)
 const AuthenticationProvider = ({children}) => {
+
+    // State to check the the initial timing in which the session is checking the log state
+    const [ isLogging, setIsLogging ] = useState(true);
+
+    // State to check the actual logging session
     const [ authentication, setAuthentication ] = useState({});
 
     useEffect(() => {
@@ -27,11 +32,12 @@ const AuthenticationProvider = ({children}) => {
                 // If the session was still in time, we reset the timeout again and setup the session into the context
                 userLogin();
             }
-
+            setIsLogging(false);
 
         } else {
             // If session doesn´t exists. We make sure it's cleaned out
             setAuthentication({});
+            setIsLogging(false);
         }
     }
 
@@ -59,7 +65,8 @@ const AuthenticationProvider = ({children}) => {
                 authentication,
                 setAuthentication,
                 userLogin,
-                userLogout
+                userLogout,
+                isLogging
             }}
         >
             {children}

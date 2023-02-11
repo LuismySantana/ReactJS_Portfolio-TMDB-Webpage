@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from '../Layout';
+import UserProfile from "../pages/UserProfile";
 
 // Webpage routing --> The most relevant ones are /popular and /information/:id
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             {
                 // Logged user profile page (accessible only for logged users)
                 path: "/profile",
-                element: <p>User profile</p>,
+                element: <UserProfile />,
             },
             {
                 // Escape url
