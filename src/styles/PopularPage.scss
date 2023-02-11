@@ -1,0 +1,36 @@
+@use "utils";
+
+.popular_films_page {
+    @include utils.flexContainer(column, nowrap, center, flex-start, 1rem);
+    width: 100%;
+    padding: 60px;
+    
+    .popular_films_title {
+        text-align: center;
+        max-width: 90%;
+        line-height: 1.4em;
+    }
+
+    .no_data_warning_container {
+        $red-danger: map-get(utils.$colors , "red-primary" );
+
+        padding: 3em 5em;
+        border: 3px solid $red-danger;
+        border-radius: .4em;
+        text-align: center;
+        margin-top: 50px;
+
+        .no_data_warning {
+            color: $red-danger;
+            font-weight: 500;
+            margin-bottom: .6em;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            font-size: .85em;
+            padding: 2em 2.5em
+        }
+    }
+    
+}

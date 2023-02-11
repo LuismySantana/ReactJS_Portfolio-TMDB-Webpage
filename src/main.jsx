@@ -6,6 +6,7 @@ import { AuthenticationProvider } from './context/AuthenticationProvider';
 import Layout from './Layout';
 import UserProfile from "./pages/UserProfile";
 import Page404 from './pages/Page404';
+import PopularPage from './pages/PopularPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                                 subtitle="Page in development"
                                 message="The home page is currently in development (and it probably will be forever)."
                             />} />
-                        <Route path="/popular" element={<p>Popular Page</p>} />
+                        <Route path="/popular" element={<PopularPage />} />
                         <Route path="/information/:id" element={<p>Film information Page</p>} />
                         <Route path="/profile" element={<UserProfile />} />
                         
