@@ -1,6 +1,6 @@
 import "../styles/Footer.scss"
 
-// As this is only a testing project, the footer will have TMDBand 2Coders as contributors of the page
+// As this is only a testing project, the footer will have TMDB and 2Coders as contributors of the page
 const Footer = () => {
 
     return (

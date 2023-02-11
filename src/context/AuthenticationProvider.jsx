@@ -62,7 +62,7 @@ const AuthenticationProvider = ({children}) => {
     function userLogout() {
         localStorage.removeItem("user_session_log");
         setAuthentication({});
-        navigate("/");
+        navigate("/popular"); // Redirect to "/popular" instead of "/" because this one is "In development"
     }
     
     

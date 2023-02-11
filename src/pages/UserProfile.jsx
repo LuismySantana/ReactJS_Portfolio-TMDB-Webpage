@@ -15,9 +15,9 @@ const UserProfile = () => {
         return <Spinner />;
     }
 
-    // If logging loading finished and we are not logged, we go back to Home page
+    // If logging loading finished and we are not logged, we go back to Most popular page (Not the Home page as it is not created)
     if (!authentication?.logged) {
-        return <Navigate to="/" />;
+        return <Navigate to="/popular" />;
     }
 
     // In any other case, we see the page (which is only an error page as it doesn't exists)
