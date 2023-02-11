@@ -1,0 +1,39 @@
+@use "utils";
+
+
+// ---- Footer ----
+footer {
+    @include utils.flexContainer(row, wrap, center, space-around, 60px);
+    background-color: map-get(utils.$colors, "blue-primary");
+    width: 100%;
+    padding: 35px;
+    margin-top: auto;
+
+
+    // ---- Sponsors/Contributors -----
+    .sponsor_container {
+        @include utils.flexContainer(column, nowrap, center, center);
+        max-width: 90%;
+        
+        .sponsor_label {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .sponsor_img {
+            width: 160px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+    }
+    
+
+
+    @media screen and (max-width: 768px) {
+        
+    }
+    
+}

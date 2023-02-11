@@ -2,25 +2,34 @@ import { createBrowserRouter } from "react-router-dom"
 
 import Layout from '../Layout'
 
-
+// Webpage routing --> The most relevant ones are /popular and /information/:id
 const router = createBrowserRouter([
     { 
         path: "/",
         element: <Layout />,
         children: [
             {
-                index: true, 
+                // Default page (accessible for logged and not logged users)
+                index: true,
                 element: <p>Index Page</p>
             },
             {
+                // Default page (accessible for logged and not logged users)
                 path: "/popular",
                 element: <p>Popular Page</p>,
             },
             {
+                // Page to view extended information of a selected film (accessible for logged and not logged users)
                 path: "/information/:id",
                 element: <p>Films information Page</p>,
             },
             {
+                // Logged user profile page (accessible only for logged users)
+                path: "/information/:id",
+                element: <p>Films information Page</p>,
+            },
+            {
+                // Escape url
                 path: "/*",
                 element: <p>404 Page</p>
             }
