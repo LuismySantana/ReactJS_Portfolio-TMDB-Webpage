@@ -1,0 +1,33 @@
+@use "utils";
+
+.pagination_container {
+    @include utils.flexContainer(row, nowrap, center, center, 10px);
+
+    .pagination_button {
+        background-color: map-get(utils.$colors, "blue-primary");
+        color: map-get(utils.$colors, "white-bg");
+        font-size: 1.2rem;
+        padding: .4em 1em;
+        border-radius: .4em;
+        user-select: none;
+        cursor: pointer;
+        transition: all ease-in-out .15s;
+
+        &:hover {
+            background-color: map-get(utils.$colors, "blue-secondary");
+
+        }
+    }
+
+    li.active .pagination_button {
+        background-color: map-get(utils.$colors, "red-primary");
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        .pagination_button.margin {
+            display: none;
+        }
+    }
+
+}
