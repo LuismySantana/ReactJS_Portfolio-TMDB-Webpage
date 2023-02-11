@@ -1,0 +1,33 @@
+@use "utils";
+
+.page_warning_container {
+    @include utils.flexContainer(column, nowrap, center, center, 1rem);
+    width: 100%;
+    height: 600px;
+    font-size: 1.5rem;
+
+    .page_gear {
+        width: 5em;
+        height: 5em;
+        stroke: map-get(utils.$colors , "blue-primary" );
+        margin-bottom: .5em;
+    }
+
+    h1 {
+        color: map-get(utils.$colors , "red-primary" );
+    }
+
+    p:last-child {
+        margin-top: 1.75em;
+    }
+
+    a {
+        color: map-get(utils.$colors , "blue-secondary" );
+        font-weight: 600;
+        transition: color ease .1s;
+
+        &:hover {
+            color: map-get(utils.$colors , "green-primary" );
+        }
+    }
+}

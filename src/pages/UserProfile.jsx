@@ -1,6 +1,7 @@
 import useAuthentication from "../hooks/useAuthentication";
 import { Navigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import Page404 from "./Page404";
 
 
 const UserProfile = () => {
@@ -19,9 +20,13 @@ const UserProfile = () => {
         return <Navigate to="/" />;
     }
 
-    // In any other case, we see the page 
+    // In any other case, we see the page (which is only an error page as it doesn't exists)
     return (
-        <div>User Profile</div>
+        <Page404
+            title="Page not ready"
+            subtitle="Page in development"
+            message="The user profile page is currently in development (and it probably will be forever)."
+        />
     )
 }
 
