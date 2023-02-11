@@ -8,9 +8,32 @@ const AuthenticationProvider = ({children}) => {
     const [ authentication, setAuthentication ] = useState({});
 
     useEffect(() => {
-        console.log("En el context") // TODO: Delete
-        
+        checkUserLoggedState();
     }, [])
+
+
+    // Everytime the user comes into de app, we take a look at its session in localSotrage...
+    function checkUserLoggedState() {
+        let sessionData = localStorage.getItem("user_session_log");
+
+        if (sessionData) {
+            sessionData = JSON.parse(sessionData)
+
+            if (Date.now() > sessionData.timeout) {
+                // If the last session exceeded the timeout, we logout the user (delete the session from the app and localStorage)
+                userLogout();
+
+            } else {
+                // If the session was still in time, we reset the timeout again and setup the session into the context
+                userLogin();
+            }
+
+
+        } else {
+            // If session doesn´t exists. We make sure it's cleaned out
+            setAuthentication({});
+        }
+    }
 
 
     function userLogin() {
@@ -30,10 +53,6 @@ const AuthenticationProvider = ({children}) => {
     }
     
     
-    
-    
-    
-
     return (
         <AuthenticationContext.Provider
             value={{

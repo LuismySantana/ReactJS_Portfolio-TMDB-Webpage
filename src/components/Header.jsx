@@ -62,12 +62,15 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            to="/profile"
-                            className={isCurrentPage("/profile") ? "active" : ""}
-                        >
-                            My profile
-                        </Link>
+                        {authentication?.logged && (
+                            <Link
+                                to="/profile"
+                                className={isCurrentPage("/profile") ? "active" : ""}
+                            >
+                                My profile
+                            </Link>
+                        )}
+                        
                     </li>
                 </ul>
             </nav>
