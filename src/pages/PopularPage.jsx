@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import Spinner from "../components/Spinner";
 import { loadPopularFilmsList } from "../utils";
+import ReactPaginate from "react-paginate";
+import MovieCard from "../components/MovieCard";
+import Spinner from "../components/Spinner";
 import "../styles/PopularPage.scss"
 import "../styles/Pagination.scss"
-import MovieCard from "../components/MovieCard";
-import ReactPaginate from "react-paginate";
+
 
 const PopularPage = () => {
-
+    // States for pagination, films data and loading animation
     const [ isLoading, setIsLoading ] = useState(false);
     const [ filmsList, setFilmsList ] = useState({});
     const [ page, setPage ] = useState(1);
 
     
+    // Each time the page is changed, update the list
     useEffect(() => {
         loadPopularFilmsList(setFilmsList, setIsLoading, page);
         
@@ -32,6 +34,7 @@ const PopularPage = () => {
                         <h1 className="no_data_warning">No data was found</h1>
                         <h3>Please try again in later</h3>
                     </div>
+                    
                 ):(
                     // Else we show the movies list
                     <div className="films_card_list">
@@ -45,7 +48,6 @@ const PopularPage = () => {
                                 release={release_date}
                                 popularity={popularity}
                                 imagePath={poster_path}
-
                             />
                         })}
                     </div>
@@ -54,8 +56,8 @@ const PopularPage = () => {
 
             {/* This module works by its own so it's better to place it outside the loading control */}
             <ReactPaginate 
-                nextLabel="Next"
-                previousLabel="Previous"
+                nextLabel="&#9654;"
+                previousLabel="&#9664;"
                 breakLabel=""
                 pageCount={filmsList?.results?.length ? 500 : 0} // The API only gives access to the first 500 Popular films pages
                 onPageChange={e => setPage(Number(e.selected)+1)}
