@@ -29,15 +29,15 @@ const FilmPage = () => {
                 !filmData || !Object.keys(filmData).length ? 
                 (
                     <WarningMessage
-                        title="Something wrent wrong"
+                        title="Something went wrong"
                         message="Try to search again for your film"
                     />
 
                 ):(
-                    <>
+                    <div className="film_information_container">
                         <p>A film page</p>
                         <p>{id}</p>
-                    </>
+                    </div>
                 )
             )}
         </main>
