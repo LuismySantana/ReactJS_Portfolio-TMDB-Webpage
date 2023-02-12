@@ -8,6 +8,7 @@ import "../styles/CircularProgressbar.scss"
 import { CircularProgressbar } from "react-circular-progressbar";
 
 
+// FilmPage will be the biggest component as it is a full page of different sections of content
 const FilmPage = () => {
 
     const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +21,7 @@ const FilmPage = () => {
     }, [])
 
 
+    // Funtion to format the money amounts of the API response
     function formatMoney(amount) {
         const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -29,6 +31,7 @@ const FilmPage = () => {
         return formatter.format(amount);
     }
 
+    // Same as formatMoney but for timing
     function formatTime(time) {
         const hours = Math.floor(time / 60);
         const minutes = time % 60;
@@ -37,7 +40,7 @@ const FilmPage = () => {
     }
 
 
-    // All the logic behind this component render is the same as in PopularPage
+    // All the logic behind this component render is the same as in PopularPage | The structure of the page will be: Heading, Genres, Overview, Aditional information and Redirection buttons
     return (
         <main className="film_info_page">
 
@@ -45,7 +48,7 @@ const FilmPage = () => {
                 (
                     <Spinner />
 
-                ) : (
+                ):(
                     !filmData || !Object.keys(filmData).length ?
                         (
                             <WarningMessage
@@ -53,16 +56,16 @@ const FilmPage = () => {
                                 message="Try to search again for your film"
                             />
 
-                        ) : (
+                        ):(
                             <div className="film_info_container">
                                 <div className="film_info_header" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${filmData.backdrop_path})` }}>
                                     <div className="header_content">{filmData.title}</div>
                                 </div>
 
-                                <div className="film_genres">
+                                <section className="film_genres">
                                     <span className="label">Genres:</span>
-
                                     <div className="genres_list">
+
                                         {filmData.genres.map(genre => (
                                             <span
                                                 className="genre_tag"
@@ -72,15 +75,16 @@ const FilmPage = () => {
                                             </span>
                                         ))}
                                         {filmData.adult && <img className="adult_film_warning" src="/18_age_restriction.png" alt="Movie +18" />}
-                                    </div>
-                                </div>
 
-                                <div className="film_overview">
+                                    </div>
+                                </section>
+
+                                <section className="film_overview">
                                     <h2>{filmData.tagline ? filmData.tagline : "Overview"}</h2>
                                     <p>{filmData.overview}</p>
-                                </div>
+                                </section>
 
-                                <div className="film_aditional_info_container">
+                                <section className="film_aditional_info_container">
                                     <div className="film_poster_container">
                                         <h3>Original poster:</h3>
                                         <img className="film_poster" src={`https://image.tmdb.org/t/p/w500${filmData.poster_path}`} alt="Original poster" />
@@ -106,7 +110,6 @@ const FilmPage = () => {
                                     </div>
 
                                     <div className="valorations_container">
-                                        
                                         <h3>User score:</h3>
                                         <CircularProgressbar
                                             className="user_score_bar"
@@ -117,16 +120,14 @@ const FilmPage = () => {
                                         
                                         <div className="spacer"></div>
 
-
                                         <div className="card_popularity">
                                             <span className="heading">Popularity</span> 
                                             <span className="content">{filmData.popularity}</span>
                                         </div>
                                     </div>
-                                </div>
+                                </section>
 
-
-                                <div className="buttons_container">
+                                <section className="buttons_container">
                                     <a href={`https://www.themoviedb.org/movie/${filmData.id}`} target="_blank">
                                         <button 
                                             type="button"
@@ -155,8 +156,7 @@ const FilmPage = () => {
                                             </button>
                                         </a>
                                     )}
-                                </div>
-
+                                </section>
                             </div>
                         )
                 )}
@@ -164,16 +164,4 @@ const FilmPage = () => {
     )
 }
 
-export default FilmPage
-
-
-/* 
-? backdrop_path 
-? adult: Pin +18 en la tarjeta
-? genres: tarjetitas de texto con padding de colores estilo titulo de tarjetas
-? 
-? 
-? boton redirect a IMDB y TMDB de la peli
-
-? En idea: Budget / logo productoras
-*/
+export default FilmPage;
