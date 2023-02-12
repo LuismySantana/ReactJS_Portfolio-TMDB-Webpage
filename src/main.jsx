@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { AuthenticationProvider } from './context/AuthenticationProvider';
 import Layout from './Layout';
 import UserProfile from "./pages/UserProfile";
 import Page404 from './pages/Page404';
 import PopularPage from './pages/PopularPage';
+import FilmPage from './pages/FilmPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -22,7 +23,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                                 message="The home page is currently in development (and it probably will be forever)."
                             />} />
                         <Route path="/popular" element={<PopularPage />} />
-                        <Route path="/information/:id" element={<p>Film information Page</p>} />
+                        <Route path="/information">
+                            <Route index element={<Navigate to="/popular"/>}/>
+                            <Route path=':id' element={<FilmPage />}/>
+                        </Route>
                         <Route path="/profile" element={<UserProfile />} />
                         
                         <Route path="/*" element={

@@ -5,6 +5,7 @@ import MovieCard from "../components/MovieCard";
 import Spinner from "../components/Spinner";
 import "../styles/PopularPage.scss"
 import "../styles/Pagination.scss"
+import WarningMessage from "../components/WarningMessage";
 
 
 const PopularPage = () => {
@@ -25,15 +26,19 @@ const PopularPage = () => {
         <main className="popular_films_page">
             <h1 className="popular_films_title">Most popular films list</h1>
 
-            {isLoading ? 
+            {isLoading ?
+            (
+                // If it's loading, we show the spinner
                 <Spinner />
-            :
-                !filmsList?.results?.length ? (
+
+            ):(
+                !filmsList?.results?.length ? 
+                (
                     // If filmsList doesn't exists or it's results are empty, we show a message
-                    <div className="no_data_warning_container">
-                        <h1 className="no_data_warning">No data was found</h1>
-                        <h3>Please try again in later</h3>
-                    </div>
+                    <WarningMessage
+                        title="No data was found"
+                        message="Please try again later"
+                    />
                     
                 ):(
                     // Else we show the movies list
@@ -52,7 +57,7 @@ const PopularPage = () => {
                         })}
                     </div>
                 )
-            }
+            )}
 
             {/* This module works by its own so it's better to place it outside the loading control */}
             <ReactPaginate 
