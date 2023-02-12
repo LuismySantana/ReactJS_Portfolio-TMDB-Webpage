@@ -4,6 +4,8 @@ import Spinner from "../components/Spinner";
 import { loadFilmById } from "../utils";
 import WarningMessage from "../components/WarningMessage";
 import "../styles/FilmPage.scss"
+import "../styles/CircularProgressbar.scss"
+import { CircularProgressbar } from "react-circular-progressbar";
 
 
 const FilmPage = () => {
@@ -106,8 +108,18 @@ const FilmPage = () => {
                                     </div>
 
                                     <div className="valorations_container">
-                                        <h3>Here goes the user score</h3>
+                                        
+                                        <h3>User score:</h3>
+                                        <CircularProgressbar
+                                            className="user_score_bar"
+                                            value={filmData.vote_average*10}
+                                            text={`${Math.round(filmData.vote_average*100) / 10}%`}
+                                            strokeWidth={6}
+                                        />
+                                        
                                         <div className="spacer"></div>
+
+
                                         <div className="card_popularity">
                                             <span className="heading">Popularity</span> 
                                             <span className="content">{filmData.popularity}</span>

@@ -137,8 +137,31 @@
                 .spacer {
                     height: 1px;
                     width: 75%;
-                    margin: 3em auto;
+                    margin: 2.5em auto 3em;
                     background-color: rgba(0, 0, 0, .2);
+                }
+
+                .user_score_bar {
+                    margin-top: 1.5em;
+                    width:40%;
+                    
+
+                    .CircularProgressbar-path {
+                        // stroke: rgb(1,210,119);
+                        stroke: map-get(utils.$colors, "blue-primary" );
+                    }
+
+                    .CircularProgressbar-trail {
+                        stroke: black;
+                        opacity: .2;
+                    }
+
+                    .CircularProgressbar-text {
+                        // fill: rgb(1,210,119);
+                        fill: map-get(utils.$colors, "blue-primary" );
+                        font-size: 1.5em;
+                        font-weight: 600;
+                    }
                 }
             }
         }
