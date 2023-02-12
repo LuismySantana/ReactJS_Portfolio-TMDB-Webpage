@@ -124,11 +124,22 @@
 
             .valorations_container {
                 text-align: center;
-                padding: .75em;
+                padding: 2.5em 0;
                 border: 1px solid rgba(0, 0, 0, .2);
                 border-radius: 10px;
                 
                 width: 275px;
+
+                .card_popularity {
+                    @include utils.popularityTag(65%);
+                }
+
+                .spacer {
+                    height: 1px;
+                    width: 75%;
+                    margin: 3em auto;
+                    background-color: rgba(0, 0, 0, .2);
+                }
             }
         }
 

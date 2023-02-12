@@ -106,7 +106,12 @@ const FilmPage = () => {
                                     </div>
 
                                     <div className="valorations_container">
-                                        <p>hola</p>
+                                        <h3>Here goes the user score</h3>
+                                        <div className="spacer"></div>
+                                        <div className="card_popularity">
+                                            <span className="heading">Popularity</span> 
+                                            <span className="content">{filmData.popularity}</span>
+                                        </div>
                                     </div>
                                 </div>
 
