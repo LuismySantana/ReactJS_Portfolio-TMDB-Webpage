@@ -37,8 +37,6 @@ const FilmPage = () => {
     }
 
 
-    console.log(filmData) // TODO: Remove
-
     // All the logic behind this component render is the same as in PopularPage
     return (
         <main className="film_info_page">
@@ -129,7 +127,34 @@ const FilmPage = () => {
 
 
                                 <div className="buttons_container">
-                                    <h1>Buttons</h1>
+                                    <a href={`https://www.themoviedb.org/movie/${filmData.id}`} target="_blank">
+                                        <button 
+                                            type="button"
+                                            className="button TMDB"
+                                        >
+                                            <img src="/TMDB_logo_short.svg" alt="" />
+                                        </button>
+                                    </a>                                    
+                                    
+                                    <a href={`https://www.imdb.com/title/${filmData.imdb_id}`} target="_blank">
+                                        <button 
+                                            type="button"
+                                            className="button IMDb"
+                                        >
+                                            <img src="/IMDb_logo.png" alt="" />
+                                        </button>
+                                    </a>
+
+                                    {filmData.homepage && (
+                                        <a href={filmData.homepage} target="_blank">
+                                            <button 
+                                                type="button"
+                                                className="button homepage"
+                                            >
+                                                Homepage
+                                            </button>
+                                        </a>
+                                    )}
                                 </div>
 
                             </div>

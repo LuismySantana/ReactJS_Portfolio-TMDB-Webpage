@@ -137,12 +137,12 @@
                 .spacer {
                     height: 1px;
                     width: 75%;
-                    margin: 2.5em auto 3em;
+                    margin: 3em auto 3.75em;
                     background-color: rgba(0, 0, 0, .2);
                 }
 
                 .user_score_bar {
-                    margin-top: 1.5em;
+                    margin-top: 1.3em;
                     width:40%;
                     
 
@@ -167,9 +167,42 @@
         }
 
         .buttons_container {
-            text-align: center;
-            padding: 2em 0;
+            @include utils.flexContainer(row, wrap, flex-start, center, 2em);
+            padding: 25px 10px;
+            
+            .button {
+                @include utils.flexContainer(row, nowrap, center, center);
+                font-size: 1.1rem;
+                padding: 1em 1.75em;
+                border-radius: .4em;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+                transition: opacity ease .2s;
+                opacity: .75;
+
+                img {
+                    height: 1.1em;
+                }
+
+                &.homepage {
+                    background-color: map-get(utils.$colors, "green-primary" );
+                    
+                }
+
+                &.TMDB {
+                    background-color: map-get(utils.$colors, "blue-primary" );
+                }
+
+                &.IMDb {
+                    background-color: rgb(245, 197, 24);
+
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
-
 }
