@@ -132,7 +132,7 @@ const FilmPage = () => {
                                             type="button"
                                             className="button TMDB"
                                         >
-                                            <img src="/TMDB_logo_short.svg" alt="" />
+                                            <img src="/TMDB_logo_short.svg" alt="Go to TMDB" />
                                         </button>
                                     </a>                                    
                                     
@@ -141,7 +141,7 @@ const FilmPage = () => {
                                             type="button"
                                             className="button IMDb"
                                         >
-                                            <img src="/IMDb_logo.png" alt="" />
+                                            <img src="/IMDb_logo.png" alt="Go to IMDb" />
                                         </button>
                                     </a>
 
