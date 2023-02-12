@@ -57,7 +57,7 @@ const PopularPage = () => {
                 nextLabel="Next"
                 previousLabel="Previous"
                 breakLabel=""
-                pageCount={filmsList?.results ? 500 : 0} // The API only gives access to the first 500 Popular films pages
+                pageCount={filmsList?.results?.length ? 500 : 0} // The API only gives access to the first 500 Popular films pages
                 onPageChange={e => setPage(Number(e.selected)+1)}
                 containerClassName="pagination_container"
                 pageLinkClassName="pagination_button"
