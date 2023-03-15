@@ -2,7 +2,7 @@ import "../styles/MovieCard.scss";
 import { Link } from "react-router-dom";
 
 
-// As required, each movie contains the title, poster image, release date and popularity score
+// Each movie contains the title, poster image, release date and popularity score
 const MovieCard = ({id, title, imagePath, release, popularity }) => {
   return (
     <Link to={`/information/${id}`}>

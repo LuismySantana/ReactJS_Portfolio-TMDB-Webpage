@@ -15,7 +15,7 @@ footer {
         @include utils.flexContainer(column, nowrap, center, center);
         max-width: 90%;
         
-        .sponsor_label {
+        .sponsor_text {
             color: #fff;
             font-weight: 500;
             font-size: 1.25rem;

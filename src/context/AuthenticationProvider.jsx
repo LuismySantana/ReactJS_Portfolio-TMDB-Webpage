@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const AuthenticationContext = createContext();
 
 
-// As this is only a test project, we will be creating a context to simulate an user login system (creating a false session via localStorage)
+// As this is only a portfolio project, we will be creating a context to simulate an user login system (creating a false session via localStorage)
 const AuthenticationProvider = ({children}) => {
 
     // To navigate to home page on logout
